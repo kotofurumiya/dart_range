@@ -115,6 +115,12 @@ class FiniteRange<T extends num> extends Range<T> {
       new FiniteRangeIterator(begin, end, step,
                               isBeginInclusive: isBeginInclusive,
                               isEndInclusive: isEndInclusive);
+
+  @override
+  String toString() {
+    var strList = this.toList();
+    return strList.toString();
+  }
 }
 
 /// An infinite sequence of numbers.
@@ -145,8 +151,8 @@ class InfiniteRange<T extends num> extends Range<T> {
 
   @override
   String toString() {
-    var head = take(5).map((e) => e).toList();
-    head.add("...");
+    var head = take(5).map<dynamic>((e) => e).toList();
+    head.add('...');
     return head.toString();
   }
 }
