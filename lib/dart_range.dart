@@ -81,8 +81,6 @@ class FiniteRange<T extends num> extends Range<T> {
   /// Returns true if the Range includes the [end] value; otherwise, false.
   final bool isEndInclusive;
 
-  FiniteRangeIterator<T> _iterator;
-
   /// Creates a new FiniteRange object.
   ///
   /// [begin], [end] or [step] can be negative.
@@ -128,8 +126,6 @@ class InfiniteRange<T extends num> extends Range<T> {
   final T begin;
   final T step;
   final bool isBeginInclusive;
-
-  InfiniteRangeIterator<T> _iterator;
 
   /// Creates a new InfiniteRange object.
   ///
