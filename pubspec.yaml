@@ -1,7 +1,9 @@
 name: dart_range
-description: A library which provide ways for generating a sequence of numbers.
-version: 0.0.1
+description: Simple range iterator.
+version: 1.0.0
 author: Koto Furumiya <kotofurumiya@gmail.com>
 homepage: https://github.com/kotofurumiya/dart_range
+environment:
+  sdk: ">=1.21.0 <2.0.0"
 dev_dependencies:
-  test: ^0.12.15
+  test: "^0.12.27+1"
