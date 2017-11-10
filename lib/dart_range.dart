@@ -3,47 +3,47 @@ library dart_range;
 
 import 'dart:collection';
 
-/// Create a new [[begin], [end]) Range object with [step].
-Iterable<T> range<T extends num>(T begin, T end, [T step = null]) =>
+/// Create a new [[begin], [end]) [Range] object with [step].
+Range<T> range<T extends num>(T begin, T end, [T step = null]) =>
     closedOpenRange<T>(begin, end, step);
 
-/// Create a new [[begin], [end]] Range object with [step].
-Iterable<T> inclusiveRange<T extends num>(T begin, T end, [T step = null]) {
+/// Create a new [[begin], [end]] [Range] object with [step].
+Range<T> inclusiveRange<T extends num>(T begin, T end, [T step = null]) {
   step ??= (T is double) ? 1.0 : 1;
   return new FiniteRange<T>.inclusive(begin, end, step);
 }
 
-/// Create a new ([begin], [end]) Range object with [step].
-Iterable<T> exclusiveRange<T extends num>(T begin, T end, [T step = null])  {
+/// Create a new ([begin], [end]) [Range] object with [step].
+Range<T> exclusiveRange<T extends num>(T begin, T end, [T step = null])  {
   step ??= (T is double) ? 1.0 : 1;
   return new FiniteRange<T>.exclusive(begin, end, step);
 }
 
-/// Create a new ([begin], [end]] Range object with [step].
-Iterable<T> openClosedRange<T extends num>(T begin, T end, [T step = null]) {
+/// Create a new ([begin], [end]] [Range] object with [step].
+Range<T> openClosedRange<T extends num>(T begin, T end, [T step = null]) {
   step ??= (T is double) ? 1.0 : 1;
   return new FiniteRange<T>.openClosed(begin, end, step);
 }
 
-/// Create a new [[begin], [end]) Range object with [step].
-Iterable<T> closedOpenRange<T extends num>(T begin, T end, [T step = null]) {
+/// Create a new [[begin], [end]) [Range] object with [step].
+Range<T> closedOpenRange<T extends num>(T begin, T end, [T step = null]) {
   step ??= (T is double) ? 1.0 : 1;
   return new FiniteRange<T>.closedOpen(begin, end, step);
 }
 
-/// Create a new [[begin], infinite) Range object with [step].
-Iterable<T> infiniteRange<T extends num>(T begin, [T step = null]) {
+/// Create a new [[begin], infinite) [Range] object with [step].
+Range<T> infiniteRange<T extends num>(T begin, [T step = null]) {
   return closedInfiniteRange<T>(begin, step);
 }
 
-/// Create a new ([begin], infinite) Range object with [step].
-Iterable<T> openInfiniteRange<T extends num>(T begin, [T step = null]) {
+/// Create a new ([begin], infinite) [Range] object with [step].
+Range<T> openInfiniteRange<T extends num>(T begin, [T step = null]) {
   step ??= (T is double) ? 1.0 : 1;
   return new InfiniteRange<T>.open(begin, step);
 }
 
-/// Create a new [[begin], infinite) Range object with [step].
-Iterable<T> closedInfiniteRange<T extends num>(T begin, [T step = null]) {
+/// Create a new [[begin], infinite) [Range] object with [step].
+Range<T> closedInfiniteRange<T extends num>(T begin, [T step = null]) {
   step ??= (T is double) ? 1.0 : 1;
   return new InfiniteRange<T>.closed(begin, step);
 }
