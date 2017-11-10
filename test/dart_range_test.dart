@@ -4,16 +4,23 @@ import 'package:dart_range/dart_range.dart';
 void main() {
   group("Finite Range", () {
     test("range()", () {
-      var generated = range(5, 10);
+      final generated = range(5, 10);
+
+      final generatedInt = range<int>(5, 10);
+      final generatedDouble = range<double>(5.0, 10.0);
+
       expect(generated, orderedEquals([5, 6, 7, 8, 9]));
+
+      expect(generatedInt, orderedEquals([5, 6, 7, 8, 9]));
+      expect(generatedDouble, orderedEquals([5.0, 6.0, 7.0, 8.0, 9.0]));
     });
 
     test("range() with a step", () {
-      var generated1 = range(1, 6, 2);
-      var generated2 = range(1, 7, 2);
+      final generated1 = range(1, 6, 2);
+      final generated2 = range(1, 7, 2);
 
-      var generatedInt    = intRange(1, 7, 2);
-      var generatedDouble = doubleRange(1.0, 7.0, 2.0);
+      final generatedInt    = range<int>(1, 7, 2);
+      final generatedDouble = range<double>(1.0, 7.0, 2.0);
 
       expect(generated1, orderedEquals([1, 3, 5]));
       expect(generated2, orderedEquals([1, 3, 5]));
@@ -23,11 +30,11 @@ void main() {
     });
 
     test("range() with a negative step", () {
-      var generated1 = range(1, -6, -2);
-      var generated2 = range(1, -7, -2);
+      final generated1 = range(1, -6, -2);
+      final generated2 = range(1, -7, -2);
 
-      var generatedInt    = intRange(1, -7, -2);
-      var generatedDouble = doubleRange(1.0, -7.0, -2.0);
+      final generatedInt    = range<int>(1, -7, -2);
+      final generatedDouble = range<double>(1.0, -7.0, -2.0);
 
       expect(generated1, orderedEquals([1, -1, -3, -5]));
       expect(generated2, orderedEquals([1, -1, -3, -5]));
@@ -37,11 +44,11 @@ void main() {
     });
 
     test("range() with a reverse step", () {
-      var generated1 = range(-1, 5, -1);
-      var generated2 = range(1, -5, 1);
+      final generated1 = range(-1, 5, -1);
+      final generated2 = range(1, -5, 1);
 
-      var generatedInt    = intRange(1, -5, 1);
-      var generatedDouble = doubleRange(1.0, -5.0, 1.0);
+      final generatedInt    = range<int>(1, -5, 1);
+      final generatedDouble = range<double>(1.0, -5.0, 1.0);
 
       expect(generated1, isEmpty);
       expect(generated2, isEmpty);
@@ -55,10 +62,10 @@ void main() {
     });
 
     test("inclusiveRange()", () {
-      var generated = inclusiveRange(1, 3);
+      final generated = inclusiveRange(1, 3);
 
-      var generatedInt    = inclusiveIntRange(1, 3);
-      var generatedDouble = inclusiveDoubleRange(1.0, 3.0);
+      final generatedInt    = inclusiveRange<int>(1, 3);
+      final generatedDouble = inclusiveRange<double>(1.0, 3.0);
 
       expect(generated, orderedEquals([1, 2, 3]));
 
@@ -67,10 +74,10 @@ void main() {
     });
 
     test("exclusiveRange()", () {
-      var generated = exclusiveRange(1, 5);
+      final generated = exclusiveRange(1, 5);
 
-      var generatedInt    = exclusiveIntRange(1, 5);
-      var generatedDouble = exclusiveDoubleRange(1.0, 5.0);
+      final generatedInt    = exclusiveRange<int>(1, 5);
+      final generatedDouble = exclusiveRange<double>(1.0, 5.0);
 
       expect(generated, orderedEquals([2, 3, 4]));
 
@@ -79,10 +86,10 @@ void main() {
     });
 
     test("openClosedRange()", () {
-      var generated = openClosedRange(1, 5);
+      final generated = openClosedRange(1, 5);
 
-      var generatedInt    = openClosedIntRange(1, 5);
-      var generatedDouble = openClosedDoubleRange(1.0, 5.0);
+      final generatedInt    = openClosedRange<int>(1, 5);
+      final generatedDouble = openClosedRange<double>(1.0, 5.0);
 
       expect(generated, orderedEquals([2, 3, 4, 5]));
 
@@ -91,10 +98,10 @@ void main() {
     });
 
     test("closedOpenRange()", () {
-      var generated = closedOpenRange(1, 5);
+      final generated = closedOpenRange(1, 5);
 
-      var generatedInt    = closedOpenRange(1, 5);
-      var generatedDouble = closedOpenRange(1.0, 5.0);
+      final generatedInt    = closedOpenRange<int>(1, 5);
+      final generatedDouble = closedOpenRange<double>(1.0, 5.0);
 
       expect(generated, orderedEquals([1, 2, 3, 4]));
 
@@ -105,21 +112,39 @@ void main() {
 
   group("Infinite Range", () {
     test("infiniteRange()", () {
-      var generated = infiniteRange(1, 3).take(5);
+      final generated = infiniteRange(1, 3).take(5);
+
+      final generatedInt = infiniteRange<int>(1, 3).take(5);
+      final generatedDouble = infiniteRange<double>(1.0, 3.0).take(5);
 
       expect(generated, orderedEquals([1, 4, 7, 10, 13]));
+
+      expect(generatedInt, orderedEquals([1, 4, 7, 10, 13]));
+      expect(generatedDouble, orderedEquals([1.0, 4.0, 7.0, 10.0, 13.0]));
     });
 
     test("openInfiniteRange()", () {
-      var generated = openInfiniteRange(1, 3).take(5);
+      final generated = openInfiniteRange(1, 3).take(5);
+
+      final generatedInt = openInfiniteRange<int>(1, 3).take(5);
+      final generatedDouble = openInfiniteRange<double>(1.0, 3.0).take(5);
 
       expect(generated, orderedEquals([4, 7, 10, 13, 16]));
+
+      expect(generatedInt, orderedEquals([4, 7, 10, 13, 16]));
+      expect(generatedDouble, orderedEquals([4.0, 7.0, 10.0, 13.0, 16.0]));
     });
 
     test("closedInfiniteRange()", () {
-      var generated = closedInfiniteRange(1, 3).take(5);
+      final generated = closedInfiniteRange(1, 3).take(5);
+
+      final generatedInt = closedInfiniteRange<int>(1, 3).take(5);
+      final generatedDouble = closedInfiniteRange<double>(1.0, 3.0).take(5);
 
       expect(generated, orderedEquals([1, 4, 7, 10, 13]));
+
+      expect(generatedInt, orderedEquals([1, 4, 7, 10, 13]));
+      expect(generatedDouble, orderedEquals([1.0, 4.0, 7.0, 10.0, 13.0]));
     });
   });
 }
