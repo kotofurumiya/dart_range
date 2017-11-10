@@ -1,6 +1,6 @@
 name: dart_range
 description: Simple range iterator.
-version: 1.0.0
+version: 1.0.1
 author: Koto Furumiya <kotofurumiya@gmail.com>
 homepage: https://github.com/kotofurumiya/dart_range
 environment:

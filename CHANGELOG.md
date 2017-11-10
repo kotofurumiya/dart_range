@@ -1,5 +1,9 @@
 # Changelog
 
+## 1.0.1
+
+- Enable Dart strong mode.
+
 ## 1.0.0
 
 - range methods now returns Range object instead of Iterable.
