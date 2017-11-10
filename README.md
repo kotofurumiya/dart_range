@@ -1,6 +1,6 @@
 # dart_range
 
-A library which provide ways of generating a sequence of numbers.
+Simple range iterator.
 
 ## Basic Usage
 
@@ -22,14 +22,15 @@ For creating detailed ranges, you have:
 
 You can also create a infinite range:
 
+    inifiniteRange(begin, [step]);      // [begin, infinity)
     openInfiniteRange(begin, [step]);   // (begin, infinity)
-    closedInfiniteRange(begin, [step]); // [begin, infinity)
+    closedInfiniteRange(begin, [step]); // same as infiniteRange 
 
 If you need a type-specific range, please use:
 
-    intRange(begin, end);
-    inclusiveIntRange(begin, end);
-    doubleRange(begin, end);
-    inclusiveDoubleRange(begin, end);
+    range<int>(begin, end);
+    inclusiveRange<int>(begin, end);
+    range<double>(begin, end);
+    inclusiveRange<double>(begin, end);
     // and so on
 
